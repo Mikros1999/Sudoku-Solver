@@ -2,10 +2,10 @@
 
 using namespace std;
 
-// N je velicina 2D matrice (N*N)
+
 #define N 9
 
-// ispis matrice
+
 void print(int arr[N][N]){
 	for (int i = 0; i < N; i++)
 	{
@@ -15,25 +15,20 @@ void print(int arr[N][N]){
 	}
 }
 
-// Proverava da li se moze
-// dodeliti broj za dati 
-// red (row) i kolonu (col)
+
 bool isSafe(int grid[N][N], int row, int col, int num){
 	
-	// Proverava da li nalazimo isti broj u istom redu
-	// ako da, vraca false
+	
 	for (int x = 0; x <= 8; x++)
 		if (grid[row][x] == num)
 			return false;
 
-	// Proverava da li nalazimo isti broj u istoj koloni
-	// ako da, vraca false
+	
 	for (int x = 0; x <= 8; x++)
 		if (grid[x][col] == num)
 			return false;
 
-	// Proverava da li nalazimo isti broj u odredjenoj 3*3 matrici
-	// ako da, vraca false
+	
 	int startRow = row - row % 3,
 			startCol = col - col % 3;
 
@@ -86,7 +81,7 @@ bool solveSudoku(int grid[N][N], int row, int col)
 
 int main()
 {
-	// UNOS inicijalne matrice koja treba da se resi, 0 su prazna polja
+
 	int grid[N][N] = {{0, 0, 7, 0, 5, 2, 0, 0, 6},
                       {0, 0, 2, 7, 8, 0, 0, 0, 9},
                       {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -97,7 +92,7 @@ int main()
                       {0, 0, 0, 2, 6, 1, 8, 0, 0},
                       {2, 0, 9, 0, 0, 5, 0, 6, 7}};
 	
-	//
+
 	if (solveSudoku(grid, 0, 0))
 		print(grid);
 	else
